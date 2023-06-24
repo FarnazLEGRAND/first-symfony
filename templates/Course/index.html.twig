@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}All Courses!{% endblock %}
+
+{% block body %}
+{% if courses is empty %}
+    <p>No courses found.</p>
+{% endif %}
+<div class="row">
+    {% for item in courses %}
+        <div class="col-md-3">
+            <h3>{{item.title}}</h3>
+            <p>{{item.subject}}</p>
+            <p>{{item.published|date('d/m/Y')}}</p>
+            <a href="/course/{{item.id}}">See More</a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
